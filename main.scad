@@ -2,9 +2,9 @@ $fa = 1;
 $fs = 0.4;
 $fn = 100;
 
-screw_diameter = 5.00;
-screw_cap_diameter = 7.00;
-screw_thickness = 4.00;
+screw_diameter = 4.20;
+screw_cap_diameter = 8.20;
+screw_thickness = 4.20;
 
 angle = 10.00;
 arm_width = 20.00;
@@ -35,11 +35,17 @@ rotate ([0, angle , 0]) translate([-(speaker_depth+2*arm_thickness), 0, 0]) clam
 difference() {
     translate([vv-arm_fastening_length, 0, hh]) cube([arm_fastening_length, arm_width, arm_thickness]);
 
-    offset_1 = arm_fastening_length / 4.00;
+    offset_1 = arm_fastening_length / 5.00;
     translate([vv-arm_fastening_length + offset_1, arm_width/2.00, hh-1.00]) cylinder(h=arm_thickness+2.00, d=screw_diameter);
-    translate([vv-arm_fastening_length + offset_1, arm_width/2.00, hh-4.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
+    translate([vv-arm_fastening_length + offset_1, arm_width/2.00, hh-5.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
 
-    offset_2 = 2*(arm_fastening_length / 3.00);
+    offset_2 = (arm_fastening_length / 2.00);
     translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-1.00]) cylinder(h=arm_thickness+2.00, d=screw_diameter);
-    translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-4.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
+    translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-5.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
 }
+
+/* Inforcement */
+enf_hyp = arm_thickness / sin(angle);
+enf_len = cos(angle) * enf_hyp;
+
+translate([vv-arm_thickness-arm_thickness, 0, hh-enf_len]) cube([arm_thickness, arm_width, enf_len]);
