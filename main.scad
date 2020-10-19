@@ -39,7 +39,7 @@ difference() {
     translate([vv-arm_fastening_length + offset_1, arm_width/2.00, hh-1.00]) cylinder(h=arm_thickness+2.00, d=screw_diameter);
     translate([vv-arm_fastening_length + offset_1, arm_width/2.00, hh-5.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
 
-    offset_2 = (arm_fastening_length / 2.00);
+    offset_2 = 1.8*(arm_fastening_length / 3.00);
     translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-1.00]) cylinder(h=arm_thickness+2.00, d=screw_diameter);
     translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-5.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
 }
