@@ -8,11 +8,11 @@ screw_thickness = 4.20;
 
 angle = 10.00;
 arm_width = 20.00;
-arm_thickness = 8.00;
+arm_thickness = 10.00;
 arm_fastening_length = 100.00;
 
-raw_speaker_height = 180.00;
-speaker_depth = 120.00;
+raw_speaker_height = 183.50;
+speaker_depth = 145.00;
 
 extra_height = sin(angle) * speaker_depth;
 speaker_height = raw_speaker_height + extra_height;
