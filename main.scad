@@ -44,8 +44,23 @@ difference() {
     translate([vv-arm_fastening_length + offset_2, arm_width/2.00, hh-5.00]) cylinder(h=arm_thickness, d=screw_cap_diameter);
 }
 
-/* Inforcement */
+/* Inner Enforcement */
 enf_hyp = arm_thickness / sin(angle);
 enf_len = cos(angle) * enf_hyp;
-
 translate([vv-arm_thickness-arm_thickness, 0, hh-enf_len]) cube([arm_thickness, arm_width, enf_len]);
+
+/* Outer Enforcement */
+translate([0, arm_width, 0])
+    rotate([90, 0, 0])
+        linear_extrude(height=arm_width)
+            polygon([[0,0], [vv/2,0], [vv,hh]]);
+
+
+/* Lower Enforcement */
+/*
+lower_enf_len = arm_thickness*3;
+translate([0, arm_width, 0])
+    rotate([90, 0, 0])
+        linear_extrude(height=arm_width)
+            polygon([[-lower_enf_len,0], [0,0], [-lower_enf_len, 10]]);
+*/
